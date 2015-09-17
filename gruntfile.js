@@ -4,12 +4,20 @@
  	grunt.initConfig({
  		pkg: grunt.file.readJSON('package.json'),
 
+ 		// concat 설정
+ 		concat: {
+ 			styles: {
+ 				src: ['bower_components/bootstrap/dist/css/*.min.css', 'test/style/custom.css'],
+ 				dest: 'test/style/styles.css'
+ 			}
+ 		},
+
  		/******************************************************************************
 		*
 		* Stylesheet 처리
 		*
 		******************************************************************************/
-		
+
 		// sass 변환
 		sass: {
 			main: {                
@@ -18,7 +26,7 @@
 			        	sourcemap: 'none'
 			      },
 			      files: {
-			        	'test/style/style.css': 'src/sass/main.scss'
+			        	'test/style/custom.css': 'src/sass/main.scss'
 			      }
 			}
 		},
@@ -29,7 +37,7 @@
 			    	keepSpeicalComments: 0,
 			},
 			minify: {
-			    	src: 'test/style/style.css',
+			    	src: 'test/style/styles.css',
 			    	dest: 'build/style/style.min.css'
 			}
 		},
@@ -58,6 +66,10 @@
 		    	 	compress: true,
 		    	 	preserveComments: false
 		    	},
+		    	style: {
+		    		src: 'test/style/styles.css',
+	        		dest: 'build/style/style.min.css'
+	        	},
 		   	react: {
 	        		src: 'test/script/app.js',
 	        		dest: 'build/script/app.min.js'
@@ -115,6 +127,7 @@
  	});
 
  	// loadNpmTasks
+ 	grunt.loadNpmTasks('grunt-contrib-concat');
  	grunt.loadNpmTasks('grunt-contrib-sass');
  	grunt.loadNpmTasks('grunt-contrib-cssmin');
     	grunt.loadNpmTasks('grunt-browserify');
@@ -133,7 +146,7 @@
 	******************************************************************************/
 
     	// registerTasks
-    	grunt.registerTask('default', ['sass', 'browserify', 'connect:test', 'watch']);
-    	grunt.registerTask('build', 	['sass', 'browserify', 'cssmin', 'uglify']);
-    	grunt.registerTask('run', 	['sass', 'browserify', 'cssmin', 'uglify', 'connect:server']);
+    	grunt.registerTask('default', 	['sass', 'browserify', 'concat' ,'connect:test', 'watch']);
+    	grunt.registerTask('build', 		['sass', 'browserify', 'cssmin', 'uglify']);
+    	grunt.registerTask('run', 		['sass', 'browserify', 'cssmin', 'uglify', 'connect:server']);
  };
