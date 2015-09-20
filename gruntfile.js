@@ -7,8 +7,8 @@
  		// concat 설정
  		concat: {
  			styles: {
- 				src: ['bower_components/bootstrap/dist/css/*.min.css', 'test/style/custom.css'],
- 				dest: 'test/style/styles.css'
+ 				src: ['bower_components/bootstrap/dist/css/*.min.css', 'src/css/custom.css'],
+ 				dest: 'test/style/style.css'
  			}
  		},
 
@@ -26,7 +26,7 @@
 			        	sourcemap: 'none'
 			      },
 			      files: {
-			        	'test/style/custom.css': 'src/sass/main.scss'
+			        	'src/css/custom.css': 'src/sass/main.scss'
 			      }
 			}
 		},
@@ -37,7 +37,7 @@
 			    	keepSpeicalComments: 0,
 			},
 			minify: {
-			    	src: 'test/style/styles.css',
+			    	src: 'test/style/style.css',
 			    	dest: 'build/style/style.min.css'
 			}
 		},
@@ -109,7 +109,7 @@
 		      // sass 파일 수정/추가 시 동작
 		      sass: {
 		        	files: 'src/sass/**/*.scss',
-		        	tasks: ['sass'],
+		        	tasks: ['sass', 'concat'],
 		        	options: {
 			      	livereload: true
 			    	}

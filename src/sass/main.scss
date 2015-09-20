@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+$bg-color: #222;
+$bg-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+
+@mixin no-decoration {
+	text-decoration: none;
+}
+
+@mixin transition-duration($sec) {
+	-webkit-transition:  	$sec;
+	-moz-transition: 	$sec;
+	-o-transition: 		$sec;
+	transition: 			$sec;
+}
+
+@mixin transition-all($prop, $sec, $func) {
+	-webkit-transition: 	$prop $sec $func;
+	-moz-transition: 	$prop $sec $func;
+	-o-transition: 		$prop $sec $func;
+	-ms-transition: 		$prop $sec $func;
+	transition: 			$prop $sec $func;
+}
+
+@mixin transform($deg) {
+	-webkit-transform: 	rotate($deg);
+	-moz-transform: 	rotate($deg);
+	-ms-transform: 	rotate($deg);
+	-o-transform: 		rotate($deg);
+	transform: 			rotate($deg);
+}
+
+@mixin transform-two-effect($x, $y, $z, $deg) {
+	-webkit-transform:  translate3d($x, $y, $z) rotateX($deg);
+	-moz-transform: 	translate3d($x, $y, $z) rotateX($deg);
+	-ms-transform: 	translate3d($x, $y, $z) rotateX($deg);
+	-o-transform: 		translate3d($x, $y, $z) rotateX($deg);
+	transform: 			translate3d($x, $y, $z) rotateX($deg);
+}
+
+@mixin transform-origin($x, $y) {
+	-webkit-transform-origin: 	$x $y;
+	-moz-transform-origin: 		$x $y;
+	-o-transform-origin: 		$x $y;
+	-ms-transform-origin: 		$x $y;
+	transform-origin: 			$x $y;
+}
+
+@mixin transform-style($style) {
+	-webkit-transform-style: 	$style;
+	-moz-transform-style: 		$style;
+	-o-transform-style: 			$style;
+	-ms-transform-style: 		$style;
+	transform-style: 			$style;
+}
+
+@mixin perspective($length) {
+	-webkit-perspective: 	$length;
+	-moz-perspective: 		$length;
+	-o-perspective: 			$length;
+	-ms-perspective: 		$length;
+	perspective: 			$length;
+}
+
+@mixin perspective-origin($x, $y) {
+	-webkit-perspective-origin: 	$x $y;
+	-moz-perspective-origin: 	$x $y;
+	-o-perspective-origin: 		$x $y;
+	-ms-perspective-origin: 		$x $y;
+	perspective-origin: 			$x $y;
+}
+
+#header {
+	.logo {
+		@include no-decoration;
+		font: {
+			weight: bold;
+		}
+		@include transition-duration(1s);
+		
+		&:hover {
+			@include no-decoration;
+			cursor: pointer;
+			@include transform(360deg);
+		}
+	}
+
+	.gnb {
+		display: inline-block;
+		overflow: hidden;
+		vertical-align: top;
+		@include perspective(600px);
+		@include perspective-origin(50%, 53%);
+
+		span {
+			display: block;
+			position: relative;
+			padding: 0 2px;
+			@include transition-all(all, 400ms, ease);
+			@include transform-origin(50%, 0%);
+			@include transform-style(preserve-3d);
+		}
+
+		&:hover span {
+			@include transform-two-effect(0px, 0px, -30px, 90deg);
+		}
+
+		span:after {
+			content: attr(data-title);
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			padding: 0 2px;
+			color: #fff;
+			@include transform-origin(50%, 0%);
+			@include transform-two-effect(0px, 105%, 0px, -90deg);
+		}
+	}
+}
+
+#video {
+	margin: {
+		top: 36px;
+	}
+}
+
+#skill {
+	margin: {
+		top: -5px;
+	}
+	.well {
+		border: {
+			style: none;
+			radius: 0;
+		}
+		background: {
+			color: $bg-color;
+			image: $bg-image;
+		}
+		color: #fff;
+	}
+}
