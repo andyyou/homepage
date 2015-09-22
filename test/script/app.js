@@ -34647,12 +34647,12 @@ var React = require('react');
 module.exports = React.createClass({displayName: "exports",
 
 	doSomething: function() {
-		alert('my homepage');
+		alert('test');
 	},
-
+	
 	render: function() {
 		return (
-			React.createElement("a", {href: "#", className: "logo"}, 
+			React.createElement("a", {href: "#", className: "logo", onClick: this.doSomething}, 
 				React.createElement("svg", {width: "70", height: "50"}, 
 					React.createElement("circle", {cx: "30", cy: "28", r: "20", stroke: "black", strokeWidth: "2"}), 
 					React.createElement("text", {x: "22", y: "33", fill: "#fff"}, "JS")
@@ -34672,7 +34672,7 @@ module.exports = React.createClass({displayName: "exports",
 		return (
 			React.createElement("div", {id: "skill"}, 
 			    	React.createElement(Well, {bsSize: "large"}, 
-			    		"skill test"
+			    		"Skill test"
 			    	)
 			)
 		);
