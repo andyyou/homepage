@@ -2,6 +2,7 @@
 
 $bg-color: #222;
 $bg-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+$title-font: 'Courgette', cursive;;
 
 @mixin no-decoration {
 	text-decoration: none;
@@ -23,11 +24,11 @@ $bg-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
 }
 
 @mixin transform($deg) {
-	-webkit-transform: 	rotate($deg);
-	-moz-transform: 	rotate($deg);
-	-ms-transform: 	rotate($deg);
-	-o-transform: 		rotate($deg);
-	transform: 			rotate($deg);
+	-webkit-transform: 	rotateY($deg);
+	-moz-transform: 	rotateY($deg);
+	-ms-transform: 	rotateY($deg);
+	-o-transform: 		rotateY($deg);
+	transform: 			rotateY($deg);
 }
 
 @mixin transform-two-effect($x, $y, $z, $deg) {
@@ -71,16 +72,27 @@ $bg-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
 }
 
 #header {
+	.navbar-fixed-top {
+		top: -56px;
+		@include transition-all(top, 0.7s, ease-in-out);
+	}
+
+	.navbar-fixed-top.show {
+		top: 0;
+		@include transition-all(top, 1s, ease-in-out);
+	}
+
 	.logo {
+		display: inline-block;
 		@include no-decoration;
 		font: {
 			weight: bold;
 		}
-		@include transition-duration(1s);
 		
 		&:hover {
 			@include no-decoration;
 			cursor: pointer;
+			@include transition-duration(1s);
 			@include transform(360deg);
 		}
 	}
@@ -120,16 +132,44 @@ $bg-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
 }
 
 #video {
-	margin: {
-		top: 36px;
+	position: relative;
+	.name {
+		position: absolute;
+		top: 0;
+		left: 20%;
+		font: {
+			family: 'Courgette', cursive;
+			size: 35px;
+		}
+		color: #fff;
+	}
+	.title {
+		position: absolute;
+		top: 40%;
+		width: 100%;
+		margin: 0 auto;
+		font: {
+			family: 'Pacifico', cursive;
+			size: 80px;
+		}
+		color: #fff;
+		text: {
+			align: center;
+		}
+		z-index: 1000;
 	}
 }
 
 #skill {
+	position: relative;
 	margin: {
 		top: -5px;
 	}
 	.well {
+		height: 500px;
+		.glyphicon {
+			top: 3px;
+		}
 		border: {
 			style: none;
 			radius: 0;
@@ -139,5 +179,142 @@ $bg-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
 			image: $bg-image;
 		}
 		color: #fff;
+		h2 {
+			font: {
+				family: $title-font;
+			}	
+		}
+		.skill_lang {
+			font: {
+				size: 30px;
+			}
+			div { 
+				display: inline-block;
+				position: absolute;
+			}
+			.lang_01 {
+				left: 45%;
+				top: 45%;
+			}
+			.lang_02 {
+				left: 70%;
+				top: 55%;
+			}
+			.lang_03 {
+				left: 23%;
+				top: 60%;
+			}
+			.lang_04 {
+				left: 50%;
+				top: 85%;
+			}
+			.lang_05 {
+				left: 75%;
+				top: 29%;
+			}
+			.lang_06 {
+				left: 73%;
+				top: 78%;
+			}
+			.lang_07 {
+				left: 20%;
+				top: 30%;
+			}
+			.lang_08 {
+				left: 10%;
+				top: 79%;
+			}
+			.lang_09 {
+				left: 33%;
+				top: 21%;
+			}
+			.lang_10 {
+				left: 55%;
+				top: 65%;
+			}
+			.lang_11 {
+				left: 70%;
+				top: 70%;
+			}
+			.lang_12 {
+				left: 68%;
+				top: 20%;
+			}
+			.lang_13 {
+				left: 10%;
+				top: 50%;
+			}
+			.lang_14 {
+				left: 30%;
+				top: 70%;
+			}
+			.lang_15 {
+				left: 50%;
+				top: 15%;
+			}
+			.lang_16 {
+				left: 62%;
+				top: 37%;
+			}
+			.lang_16 {
+				left: 58%;
+				top: 35%;
+			}
+			.lang_17 {
+				left: 12%;
+				top: 20%;
+			}
+		}
 	}
+	
+	
+}
+
+/****************************************************************
+*
+*
+*  media query 설정
+*
+*
+*****************************************************************/
+
+@media all and (max-width: 900px) {
+	#video {
+		.title {
+			font: {
+				size: 50px;
+			}
+		}
+	}
+
+	#skill {
+		.well {
+			h2 {
+				font: {
+					size: 20px;
+				}
+			}
+			.skill_lang {
+				font: {
+					size: 17px;
+				}
+			}
+		}
+	}
+}
+
+@media all and (max-width: 640px) {
+	#video {
+		.name {
+			font: {
+				size: 20px;
+			}
+		}
+
+		.title {
+			font: {
+				size: 30px;
+			}
+		}
+	}	
 }

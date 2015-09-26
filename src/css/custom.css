@@ -1,19 +1,37 @@
+@charset "UTF-8";
+#header .navbar-fixed-top {
+  top: -56px;
+  -webkit-transition: top 0.7s ease-in-out;
+  -moz-transition: top 0.7s ease-in-out;
+  -o-transition: top 0.7s ease-in-out;
+  -ms-transition: top 0.7s ease-in-out;
+  transition: top 0.7s ease-in-out;
+}
+#header .navbar-fixed-top.show {
+  top: 0;
+  -webkit-transition: top 1s ease-in-out;
+  -moz-transition: top 1s ease-in-out;
+  -o-transition: top 1s ease-in-out;
+  -ms-transition: top 1s ease-in-out;
+  transition: top 1s ease-in-out;
+}
 #header .logo {
+  display: inline-block;
   text-decoration: none;
   font-weight: bold;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
 }
 #header .logo:hover {
   text-decoration: none;
   cursor: pointer;
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  transform: rotate(360deg);
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  -o-transform: rotateY(360deg);
+  transform: rotateY(360deg);
 }
 #header .gnb {
   display: inline-block;
@@ -78,16 +96,150 @@
 }
 
 #video {
-  margin-top: 36px;
+  position: relative;
+}
+#video .name {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  font-family: 'Courgette', cursive;
+  font-size: 35px;
+  color: #fff;
+}
+#video .title {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Pacifico', cursive;
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  z-index: 1000;
 }
 
 #skill {
+  position: relative;
   margin-top: -5px;
 }
 #skill .well {
+  height: 500px;
   border-style: none;
   border-radius: 0;
   background-color: #222;
   background-image: linear-gradient(to bottom, #3c3c3c 0, #222 100%);
   color: #fff;
+}
+#skill .well .glyphicon {
+  top: 3px;
+}
+#skill .well h2 {
+  font-family: "Courgette", cursive;
+}
+#skill .well .skill_lang {
+  font-size: 30px;
+}
+#skill .well .skill_lang div {
+  display: inline-block;
+  position: absolute;
+}
+#skill .well .skill_lang .lang_01 {
+  left: 45%;
+  top: 45%;
+}
+#skill .well .skill_lang .lang_02 {
+  left: 70%;
+  top: 55%;
+}
+#skill .well .skill_lang .lang_03 {
+  left: 23%;
+  top: 60%;
+}
+#skill .well .skill_lang .lang_04 {
+  left: 50%;
+  top: 85%;
+}
+#skill .well .skill_lang .lang_05 {
+  left: 75%;
+  top: 29%;
+}
+#skill .well .skill_lang .lang_06 {
+  left: 73%;
+  top: 78%;
+}
+#skill .well .skill_lang .lang_07 {
+  left: 20%;
+  top: 30%;
+}
+#skill .well .skill_lang .lang_08 {
+  left: 10%;
+  top: 79%;
+}
+#skill .well .skill_lang .lang_09 {
+  left: 33%;
+  top: 21%;
+}
+#skill .well .skill_lang .lang_10 {
+  left: 55%;
+  top: 65%;
+}
+#skill .well .skill_lang .lang_11 {
+  left: 70%;
+  top: 70%;
+}
+#skill .well .skill_lang .lang_12 {
+  left: 68%;
+  top: 20%;
+}
+#skill .well .skill_lang .lang_13 {
+  left: 10%;
+  top: 50%;
+}
+#skill .well .skill_lang .lang_14 {
+  left: 30%;
+  top: 70%;
+}
+#skill .well .skill_lang .lang_15 {
+  left: 50%;
+  top: 15%;
+}
+#skill .well .skill_lang .lang_16 {
+  left: 62%;
+  top: 37%;
+}
+#skill .well .skill_lang .lang_16 {
+  left: 58%;
+  top: 35%;
+}
+#skill .well .skill_lang .lang_17 {
+  left: 12%;
+  top: 20%;
+}
+
+/****************************************************************
+*
+*
+*  media query 설정
+*
+*
+*****************************************************************/
+@media all and (max-width: 900px) {
+  #video .title {
+    font-size: 50px;
+  }
+
+  #skill .well h2 {
+    font-size: 20px;
+  }
+  #skill .well .skill_lang {
+    font-size: 17px;
+  }
+}
+@media all and (max-width: 640px) {
+  #video .name {
+    font-size: 20px;
+  }
+  #video .title {
+    font-size: 30px;
+  }
 }

@@ -3,7 +3,7 @@ var Header = require('./header.jsx');
 var Video = require('./video.jsx');
 var Skill = require('./skill.jsx');
 
-module.exports = React.createClass({
+var container = React.createClass({
 
 	render: function() {
 		return (
@@ -16,3 +16,5 @@ module.exports = React.createClass({
 	}
 
 });
+
+module.exports = container;

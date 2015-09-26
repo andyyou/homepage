@@ -7,7 +7,7 @@
  		// concat 설정
  		concat: {
  			styles: {
- 				src: ['bower_components/bootstrap/dist/css/*.min.css', 'src/css/custom.css'],
+ 				src: ['bower_components/bootstrap/dist/css/bootstrap.css', 'bower_components/bootstrap/dist/css/bootstrap-theme.css', 'src/css/custom.css'],
  				dest: 'test/style/style.css'
  			}
  		},
@@ -66,10 +66,6 @@
 		    	 	compress: true,
 		    	 	preserveComments: false
 		    	},
-		    	style: {
-		    		src: 'test/style/styles.css',
-	        		dest: 'build/style/style.min.css'
-	        	},
 		   	react: {
 	        		src: 'test/script/app.js',
 	        		dest: 'build/script/app.min.js'
