@@ -8,20 +8,28 @@ $title-font: 'Courgette', cursive;;
 	text-decoration: none;
 }
 
-@mixin transition-duration($sec) {
-	-webkit-transition:  	$sec;
-	-moz-transition: 	$sec;
-	-o-transition: 		$sec;
-	transition: 			$sec;
+@mixin transition($sec ,$prop:all, $func:ease) {
+	-webkit-transition: 	$sec $prop $func;
+	-moz-transition: 	$sec $prop $func;
+	-o-transition: 		$sec $prop $func;
+	-ms-transition: 		$sec $prop $func;
+	transition: 			$sec $prop $func;
 }
 
-@mixin transition-all($prop, $sec, $func) {
-	-webkit-transition: 	$prop $sec $func;
-	-moz-transition: 	$prop $sec $func;
-	-o-transition: 		$prop $sec $func;
-	-ms-transition: 		$prop $sec $func;
-	transition: 			$prop $sec $func;
-}
+// @mixin transition-duration($sec) {
+// 	-webkit-transition:  	$sec;
+// 	-moz-transition: 	$sec;
+// 	-o-transition: 		$sec;
+// 	transition: 			$sec;
+// }
+
+// @mixin transition-all($prop, $sec, $func) {
+// 	-webkit-transition: 	$prop $sec $func;
+// 	-moz-transition: 	$prop $sec $func;
+// 	-o-transition: 		$prop $sec $func;
+// 	-ms-transition: 		$prop $sec $func;
+// 	transition: 			$prop $sec $func;
+// }
 
 @mixin transform($deg) {
 	-webkit-transform: 	rotateY($deg);
@@ -74,12 +82,12 @@ $title-font: 'Courgette', cursive;;
 #header {
 	.navbar-fixed-top {
 		top: -56px;
-		@include transition-all(top, 0.7s, ease-in-out);
+		@include transition(0.7s, top, ease-in-out);
 	}
 
 	.navbar-fixed-top.show {
 		top: 0;
-		@include transition-all(top, 1s, ease-in-out);
+		@include transition(1s, top, ease-in-out);
 	}
 
 	.logo {
@@ -92,7 +100,7 @@ $title-font: 'Courgette', cursive;;
 		&:hover {
 			@include no-decoration;
 			cursor: pointer;
-			@include transition-duration(1s);
+			@include transition(1s);
 			@include transform(360deg);
 		}
 	}
@@ -108,7 +116,7 @@ $title-font: 'Courgette', cursive;;
 			display: block;
 			position: relative;
 			padding: 0 2px;
-			@include transition-all(all, 400ms, ease);
+			@include transition(400ms, all, ease);
 			@include transform-origin(50%, 0%);
 			@include transform-style(preserve-3d);
 		}
@@ -166,7 +174,6 @@ $title-font: 'Courgette', cursive;;
 		top: -5px;
 	}
 	.well {
-		height: 500px;
 		.glyphicon {
 			top: 3px;
 		}
@@ -175,100 +182,58 @@ $title-font: 'Courgette', cursive;;
 			radius: 0;
 		}
 		background: {
-			color: $bg-color;
-			image: $bg-image;
+			color: #fff;
+			image: none;
 		}
-		color: #fff;
 		h2 {
 			font: {
 				family: $title-font;
 			}	
 		}
-		.skill_lang {
-			font: {
-				size: 30px;
-			}
-			div { 
-				display: inline-block;
-				position: absolute;
-			}
-			.lang_01 {
-				left: 45%;
-				top: 45%;
-			}
-			.lang_02 {
-				left: 70%;
-				top: 55%;
-			}
-			.lang_03 {
-				left: 23%;
-				top: 60%;
-			}
-			.lang_04 {
-				left: 50%;
-				top: 85%;
-			}
-			.lang_05 {
-				left: 75%;
-				top: 29%;
-			}
-			.lang_06 {
-				left: 73%;
-				top: 78%;
-			}
-			.lang_07 {
-				left: 20%;
-				top: 30%;
-			}
-			.lang_08 {
-				left: 10%;
-				top: 79%;
-			}
-			.lang_09 {
-				left: 33%;
-				top: 21%;
-			}
-			.lang_10 {
-				left: 55%;
-				top: 65%;
-			}
-			.lang_11 {
-				left: 70%;
-				top: 70%;
-			}
-			.lang_12 {
-				left: 68%;
-				top: 20%;
-			}
-			.lang_13 {
-				left: 10%;
-				top: 50%;
-			}
-			.lang_14 {
-				left: 30%;
-				top: 70%;
-			}
-			.lang_15 {
-				left: 50%;
-				top: 15%;
-			}
-			.lang_16 {
-				left: 62%;
-				top: 37%;
-			}
-			.lang_16 {
-				left: 58%;
-				top: 35%;
-			}
-			.lang_17 {
-				left: 12%;
-				top: 20%;
+		.skill_part {
+			float: left;
+			width: 50%;
+			height: 0;
+			padding-bottom: 50%; /*acts as fluid height*/
+			overflow:hidden;
+  			position:relative;
+			#wordCloud, #chart {
+				position:absolute;
+				width:100%;
+				height:100%;
+				border: {
+					width: 5px;
+					style: solid;
+					color: #eee;
+					radius: 5px;
+				}
 			}
 		}
 	}
-	
-	
 }
+
+/***************************************************************
+* bar chart style
+***************************************************************/
+
+#chart text {
+  font: 11px sans-serif;
+}
+
+rect.background {
+  fill: white;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+}
+
 
 /****************************************************************
 *
@@ -289,15 +254,16 @@ $title-font: 'Courgette', cursive;;
 
 	#skill {
 		.well {
+			height: 500px;
 			h2 {
 				font: {
 					size: 20px;
 				}
 			}
-			.skill_lang {
-				font: {
-					size: 17px;
-				}
+			.skill_part {
+				clear: both;
+				width: 100%;
+				padding-bottom: 100%;
 			}
 		}
 	}

@@ -7390,19 +7390,19 @@ fieldset[disabled] .btn-danger.active {
 @charset "UTF-8";
 #header .navbar-fixed-top {
   top: -56px;
-  -webkit-transition: top 0.7s ease-in-out;
-  -moz-transition: top 0.7s ease-in-out;
-  -o-transition: top 0.7s ease-in-out;
-  -ms-transition: top 0.7s ease-in-out;
-  transition: top 0.7s ease-in-out;
+  -webkit-transition: 0.7s top ease-in-out;
+  -moz-transition: 0.7s top ease-in-out;
+  -o-transition: 0.7s top ease-in-out;
+  -ms-transition: 0.7s top ease-in-out;
+  transition: 0.7s top ease-in-out;
 }
 #header .navbar-fixed-top.show {
   top: 0;
-  -webkit-transition: top 1s ease-in-out;
-  -moz-transition: top 1s ease-in-out;
-  -o-transition: top 1s ease-in-out;
-  -ms-transition: top 1s ease-in-out;
-  transition: top 1s ease-in-out;
+  -webkit-transition: 1s top ease-in-out;
+  -moz-transition: 1s top ease-in-out;
+  -o-transition: 1s top ease-in-out;
+  -ms-transition: 1s top ease-in-out;
+  transition: 1s top ease-in-out;
 }
 #header .logo {
   display: inline-block;
@@ -7412,10 +7412,11 @@ fieldset[disabled] .btn-danger.active {
 #header .logo:hover {
   text-decoration: none;
   cursor: pointer;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
+  -webkit-transition: 1s all ease;
+  -moz-transition: 1s all ease;
+  -o-transition: 1s all ease;
+  -ms-transition: 1s all ease;
+  transition: 1s all ease;
   -webkit-transform: rotateY(360deg);
   -moz-transform: rotateY(360deg);
   -ms-transform: rotateY(360deg);
@@ -7441,11 +7442,11 @@ fieldset[disabled] .btn-danger.active {
   display: block;
   position: relative;
   padding: 0 2px;
-  -webkit-transition: all 400ms ease;
-  -moz-transition: all 400ms ease;
-  -o-transition: all 400ms ease;
-  -ms-transition: all 400ms ease;
-  transition: all 400ms ease;
+  -webkit-transition: 400ms all ease;
+  -moz-transition: 400ms all ease;
+  -o-transition: 400ms all ease;
+  -ms-transition: 400ms all ease;
+  transition: 400ms all ease;
   -webkit-transform-origin: 50% 0%;
   -moz-transform-origin: 50% 0%;
   -o-transform-origin: 50% 0%;
@@ -7512,12 +7513,10 @@ fieldset[disabled] .btn-danger.active {
   margin-top: -5px;
 }
 #skill .well {
-  height: 500px;
   border-style: none;
   border-radius: 0;
-  background-color: #222;
-  background-image: linear-gradient(to bottom, #3c3c3c 0, #222 100%);
-  color: #fff;
+  background-color: #fff;
+  background-image: none;
 }
 #skill .well .glyphicon {
   top: 3px;
@@ -7525,84 +7524,44 @@ fieldset[disabled] .btn-danger.active {
 #skill .well h2 {
   font-family: "Courgette", cursive;
 }
-#skill .well .skill_lang {
-  font-size: 30px;
+#skill .well .skill_part {
+  float: left;
+  width: 50%;
+  height: 0;
+  padding-bottom: 50%;
+  /*acts as fluid height*/
+  overflow: hidden;
+  position: relative;
 }
-#skill .well .skill_lang div {
-  display: inline-block;
+#skill .well .skill_part #wordCloud, #skill .well .skill_part #chart {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #eee;
+  border-radius: 5px;
 }
-#skill .well .skill_lang .lang_01 {
-  left: 45%;
-  top: 45%;
+
+/***************************************************************
+* bar chart style
+***************************************************************/
+#chart text {
+  font: 11px sans-serif;
 }
-#skill .well .skill_lang .lang_02 {
-  left: 70%;
-  top: 55%;
+
+rect.background {
+  fill: white;
 }
-#skill .well .skill_lang .lang_03 {
-  left: 23%;
-  top: 60%;
+
+.axis {
+  shape-rendering: crispEdges;
 }
-#skill .well .skill_lang .lang_04 {
-  left: 50%;
-  top: 85%;
-}
-#skill .well .skill_lang .lang_05 {
-  left: 75%;
-  top: 29%;
-}
-#skill .well .skill_lang .lang_06 {
-  left: 73%;
-  top: 78%;
-}
-#skill .well .skill_lang .lang_07 {
-  left: 20%;
-  top: 30%;
-}
-#skill .well .skill_lang .lang_08 {
-  left: 10%;
-  top: 79%;
-}
-#skill .well .skill_lang .lang_09 {
-  left: 33%;
-  top: 21%;
-}
-#skill .well .skill_lang .lang_10 {
-  left: 55%;
-  top: 65%;
-}
-#skill .well .skill_lang .lang_11 {
-  left: 70%;
-  top: 70%;
-}
-#skill .well .skill_lang .lang_12 {
-  left: 68%;
-  top: 20%;
-}
-#skill .well .skill_lang .lang_13 {
-  left: 10%;
-  top: 50%;
-}
-#skill .well .skill_lang .lang_14 {
-  left: 30%;
-  top: 70%;
-}
-#skill .well .skill_lang .lang_15 {
-  left: 50%;
-  top: 15%;
-}
-#skill .well .skill_lang .lang_16 {
-  left: 62%;
-  top: 37%;
-}
-#skill .well .skill_lang .lang_16 {
-  left: 58%;
-  top: 35%;
-}
-#skill .well .skill_lang .lang_17 {
-  left: 12%;
-  top: 20%;
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
 }
 
 /****************************************************************
@@ -7617,11 +7576,16 @@ fieldset[disabled] .btn-danger.active {
     font-size: 50px;
   }
 
+  #skill .well {
+    height: 500px;
+  }
   #skill .well h2 {
     font-size: 20px;
   }
-  #skill .well .skill_lang {
-    font-size: 17px;
+  #skill .well .skill_part {
+    clear: both;
+    width: 100%;
+    padding-bottom: 100%;
   }
 }
 @media all and (max-width: 640px) {
