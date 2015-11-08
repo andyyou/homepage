@@ -1,0 +1,14 @@
+[
+     	{"language": "HTML5", "percent": 95},
+     	{"language": "CSS3", "percent": 98},
+     	{"language": "Javascript", "percent": 73},
+     	{"language": "jQuery", "percent": 81},
+     	{"language": "React", "percent": 55},
+     	{"language": "Angular", "percent": 32},
+     	{"language": "Grunt", "percent": 86},
+     	{"language": "Gulp", "percent": 17},
+     	{"language": "SASS", "percent": 80},
+     	{"language": "LESS", "percent": 18},
+     	{"language": "Java", "percent": 52},
+     	{"language": "JSP", "percent": 33}
+]

@@ -7511,6 +7511,7 @@ fieldset[disabled] .btn-danger.active {
 #skill {
   position: relative;
   margin-top: -5px;
+  background-color: antiquewhite;
 }
 #skill .well {
   border-style: none;
@@ -7533,35 +7534,24 @@ fieldset[disabled] .btn-danger.active {
   overflow: hidden;
   position: relative;
 }
-#skill .well .skill_part #wordCloud, #skill .well .skill_part #chart {
+#skill .well .skill_part #wordCloud, #skill .well .skill_part #barChart {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #eee;
-  border-radius: 5px;
 }
 
 /***************************************************************
 * bar chart style
 ***************************************************************/
-#chart text {
-  font: 11px sans-serif;
-}
-
-rect.background {
-  fill: white;
-}
-
-.axis {
-  shape-rendering: crispEdges;
+#barChart text {
+  font-size: 11px;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: #F7B9D9;
+  shape-rendering: crishpEdges;
 }
 
 /****************************************************************
@@ -7594,5 +7584,14 @@ rect.background {
   }
   #video .title {
     font-size: 30px;
+  }
+
+  #barChart text {
+    font-size: 10px;
+  }
+}
+@media all and (max-width: 320px) {
+  #barChart text {
+    font-size: 9px;
   }
 }

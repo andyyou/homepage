@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+      <head>
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>결제</title>
+          <style type="text/css">
+            @charset "UTF-8";
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a { text-decoration: none;}
+
+/***************************************************************************/
+
+html, body { width: 100%; height: 100%; background: url('../image/bg/main_bg.png'); background-size: 120% 100%;}
+body { position: relative; }
+
+.container { width: 100%;}
+
+.header { background: #3a3f42;}
+.header h1 { padding: 3% 0; font-size: 1em; font-weight: bold; color: #fff; text-indent: -5px; text-align: center;}
+
+.title h2 { padding: 2.5% 0 2.5% 3%; font-size: 1em;  font-weight: 800; color: #333;}
+
+.contents h3 { padding: 2.5% 3%; border-bottom:1px solid #eee; font-size: 0.8em; font-weight: 900; color: #333;}
+.contents h4 { padding: 2.5% 0 2.5% 3%; font-size: 0.8em; font-weight: 700; color: #333;}
+.contents p { padding: 0 3%; line-height: 2em; font-size: 0.7em; color: #888;}
+.contents { overflow-y: auto; padding-bottom: 5%; background: #fff;}
+
+.footer { border-top: 2px solid #e6e6e6; background: #eceeee; text-align: center;}
+.footer img { padding-top: 5px;}
+
+.pay { text-align: center;}
+.pay_bg { padding: 2% 0; background: url('../image/bg/pattern.png') repeat;}
+.pay .pay_bg img { width: 10%; vertical-align: middle;}
+.pay .pay_bg span { vertical-align: middle;}
+.pay .pay_bg span strong { font-size: 1em; font-weight: bold;}
+
+.order_info { padding-bottom: 5%; margin:3%; background: #fff;} 
+.order_info h2 { padding: 3% 0 3% 3%; border-bottom: 2px solid #eee; font-size: 1em; font-weight: bold; color: #333; text-align: left;}
+
+.order_info table th, .order_info table td { padding: 2% 0; font-size: 0.8em; vertical-align: middle;}
+.order_info table th { padding-left: 1em; width: 40%; text-align: left; color: #000;}
+.order_info table td { text-align: left; color: #888;}
+
+.pw_input { text-align: center;}
+.pw_input p { margin: 5%; font-size: 0.8em;  font-weight: bold; color: #333; line-height: 1.5em;}
+.pw_input input { -webkit-appearance: none; width: 30px; height: 30px; border: 2px solid #e0e4e8; border-radius: 5px;}
+.pw_input .inputed { background: url('../image/bg/pw_inputed.png');}
+.pw_input .unnecessary  { background: url('../image/bg/pw_unnecessary.png');}
+.pw_input .pay_confirm { display: block; margin: 5% 0;}
+.pw_input .pay_confirm input { -webkit-appearance: none; width: 90%; height: 35px; background: #7d868b; color: #fff; font-size: 1em; font-weight: bold;}
+
+.success, .error, .no_valid { text-align: center;}
+.success img, .error img, .no_valid img { width: 50%; margin: 8% 0; text-align: center;}
+.success p, .error p, .no_valid p { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #d5d5d5; font-size: 1em; font-weight: bold; }
+.success span, .error span, .no_valid span { color: #898989; line-height: 25px;}
+
+.detail .detail_title { padding: 4% 0;  background: #fff;}
+.detail h2 { padding-left: 20px; font-size: 1em; font-weight: bold; color: #333;}
+.detail .detail_size { margin: 10px; border: 2px solid #e0e4e8; border-bottom: none; border-radius: 10px; background: #fff;}
+.detail .detail_size h3 { padding: 3%; font-size: 1em; font-weight: bold; color: #333;}
+.detail .detail_size table { width: 100%; border-top: 2px solid #e0e4e8;}
+.detail .detail_size table tr { border-bottom: 2px solid #e0e4e8;}
+.detail .detail_size table td { padding: 5% 0; padding-left: 10px; border-right: 2px solid #e0e4e8; font-size: 1em; font-weight: bold; color: #333; vertical-align: middle;}
+.detail .detail_size table td:last-child { border-right: none;}
+ 
+ /*해상도별 미디어쿼리 설정*/
+@media all and (max-device-width: 320px) and (max-device-height: 480px) {
+  .contents { height: 155px !important;}
+}
+
+@media all and (min-width: 320px){
+  .contents { height: 185px;}
+}
+
+@media all and (min-width: 375px){
+  .contents { height: 215px;}
+  .order_info table th, .order_info table td { padding: 3% 0; font-size: 0.9em;}
+  .order_info table th { padding-left: 1em;}
+}
+
+@media all and (min-width: 400px){
+  .order_info table th, .order_info table td { padding: 5% 0; font-size: 1em;}
+  .order_info table th { padding-left: 1em;}
+}
+
+@media all and (min-width: 760px){
+  .contents { height: inherit;}
+}
+
+@media all and (min-width: 768px){
+  .order_info table th, .order_info table td { padding: 7% 0; font-size: 1.2em;}
+  .order_info table th { padding-left: 1em;}
+  .pw_input p { font-size: 1.2em;}
+  .pw_input .pay_confirm input { height: 50px;}
+}
+          </style>
+     </head>
+     <body>
+          <div class="container">
+            <div class="header">
+                <h1>결제</h1>
+            </div>
+            <div class="pay">
+                <div class="pay_bg">
+                      <img src="image/ico/pay_ico.png">
+                      <span><strong>톡간편주문</strong>은 <strong>개인정보를 보호</strong>합니다.</span>
+                </div>
+                <div class="order_info">
+                    <h2>주문정보</h2>
+                    <table>
+                        <tbody>
+                            <tr>
+                                  <th>상품</th>
+                                  <td>아레나 휘트니스 라인 슈트트렉</td>
+                            </tr>
+                            <tr>
+                                  <th>옵션</th>
+                                  <td>100(Size)</td>
+                            </tr>
+                            <tr>
+                                  <th>수량</th>
+                                  <td>1개</td>
+                            </tr>
+                            <tr>
+                                  <th>결제금액</th>
+                                  <td>59,900원</td>
+                            </tr>
+                            <tr>
+                                  <th>결제카드</th>
+                                  <td>신한카드<br>
+                                        <span>xxxx</span>-<span>xxxx</span>-<span>xxxx</span>-<span>5678</span>
+                                  </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pw_input">
+                    <form action="" method="">
+                        <p>비밀번호 앞의 2자리를 입력하시고 결제확인 버튼을 눌러주세요.</p>
+                        <input type="password" class="inputed" disabled>
+                        <input type="password" class="inputting">
+                        <input type="password" class="unnecessary" disabled>
+                        <input type="password" class="unnecessary" disabled>
+                        <span class="pay_confirm">
+                            <input type="submit" value="결제확인">
+                        </span>
+                    </form>
+                </div>
+            </div>
+          </div>
+     </body>
+</html>

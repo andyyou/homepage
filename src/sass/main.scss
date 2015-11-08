@@ -16,21 +16,6 @@ $title-font: 'Courgette', cursive;;
 	transition: 			$sec $prop $func;
 }
 
-// @mixin transition-duration($sec) {
-// 	-webkit-transition:  	$sec;
-// 	-moz-transition: 	$sec;
-// 	-o-transition: 		$sec;
-// 	transition: 			$sec;
-// }
-
-// @mixin transition-all($prop, $sec, $func) {
-// 	-webkit-transition: 	$prop $sec $func;
-// 	-moz-transition: 	$prop $sec $func;
-// 	-o-transition: 		$prop $sec $func;
-// 	-ms-transition: 		$prop $sec $func;
-// 	transition: 			$prop $sec $func;
-// }
-
 @mixin transform($deg) {
 	-webkit-transform: 	rotateY($deg);
 	-moz-transform: 	rotateY($deg);
@@ -173,6 +158,9 @@ $title-font: 'Courgette', cursive;;
 	margin: {
 		top: -5px;
 	}
+	background: {
+		color: antiquewhite;
+	}
 	.well {
 		.glyphicon {
 			top: 3px;
@@ -197,16 +185,16 @@ $title-font: 'Courgette', cursive;;
 			padding-bottom: 50%; /*acts as fluid height*/
 			overflow:hidden;
   			position:relative;
-			#wordCloud, #chart {
+			#wordCloud, #barChart {
 				position:absolute;
 				width:100%;
 				height:100%;
-				border: {
-					width: 5px;
-					style: solid;
-					color: #eee;
-					radius: 5px;
-				}
+				// border: {
+				// 	width: 5px;
+				// 	style: solid;
+				// 	color: #eee;
+				// 	radius: 5px;
+				// }
 			}
 		}
 	}
@@ -215,23 +203,24 @@ $title-font: 'Courgette', cursive;;
 /***************************************************************
 * bar chart style
 ***************************************************************/
-
-#chart text {
-  font: 11px sans-serif;
-}
-
-rect.background {
-  fill: white;
-}
-
-.axis {
-  shape-rendering: crispEdges;
+#barChart {
+	// svg {
+	// 	background: {
+	// 		color: antiquewhite;
+	// 	}
+	// }
+	text {
+		font: {
+			size: 11px;
+		}
+	}
 }
 
 .axis path,
 .axis line {
-  fill: none;
-  stroke: #000;
+  	fill: none;
+  	stroke: #F7B9D9;
+  	shape-rendering: crishpEdges;
 }
 
 
@@ -282,5 +271,23 @@ rect.background {
 				size: 30px;
 			}
 		}
-	}	
+	}
+
+	#barChart {
+		text {
+			font: {
+				size: 10px;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 320px) {
+	#barChart {
+		text {
+			font: {
+				size: 9px;
+			}
+		}
+	}
 }
