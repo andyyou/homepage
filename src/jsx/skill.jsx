@@ -4,8 +4,6 @@ var $ = require('jquery');
 var d3 = require('d3');
 var wordCloud = require('d3-cloud');
 
-// var gsap = require('gsap');
-
 var skill = React.createClass({
 
 	render: function() {
@@ -17,9 +15,7 @@ var skill = React.createClass({
 			    			<div id="wordCloud"></div>
 			    		</div>
 			    		<div className="skill_part">
-			    			<div id="barChart">
-
-			    			</div>
+			    			<div id="barChart"></div>
 			    		</div>
 			    	</Well>
 			</div>
@@ -40,7 +36,7 @@ var skill = React.createClass({
 		//  drawWordCloud 함수 정의
 		function drawWordCloud (wordCloudWidth, wordCloudHeight) {
 			// d3 cloud variable
-			var fill = d3.scale.category20();									// 20개의 색상 카테고리로 순차 스케일 생성.
+			var fill = d3.scale.category20();									// 20개의 색상 카테고리로 순차 스케일 생성
 			var wordCloudWidth = $('#wordCloud').width();					// wordCloud section 너비 
 			var wordCloudHeight = wordCloudWidth;						// wordCloud section 높이
 			var canvas = d3.select('#wordCloud').append('svg')				// svg 기본 
@@ -166,13 +162,6 @@ var skill = React.createClass({
 
 				if (error) console.log('Error: data not loaded');
 
-				data.forEach(function (d) {
-					d.percent = +d.percent;
-					d.language = d.language;
-
-					console.log(d.percent);
-				});
-
 				data.sort(function (a, b) {
 					return b.percent - a.percent;
 				});
@@ -237,21 +226,7 @@ var skill = React.createClass({
 		}
 
 		// 해상도에 따라 resizeDrawBarChart 함수 호출
-		d3.select(window).on('resize', resizeDrawBarChart); 
-
-		
-
-
-		// var $lang = $('.skill_lang div');
-		// var $lang_odd = $('.skill_lang div:odd');
-		// var $lang_even = $('.skill_lang div:even');
-
-		// offset the origin on the z-axis to make the spins more interesting.
-		// TweenLite.set($lang, {transformOrigin:"center center -150px"});
-		
-		// pulsate the box using scaleX and scaleY
-		// TweenMax.to($lang_odd, 1.2, {scaleX:0.8, scaleY:0.8, force3D:true, yoyo:true, repeat:-1, ease:Power1.easeInOut});
-		// TweenMax.to($lang_even, 1.2, {scaleX:1.2, scaleY:1.2, force3D:true, yoyo:true, repeat:-1, ease:Power2.easeInOut});
+		d3.select(window).on('resize', resizeDrawBarChart);
 	}
 });
 

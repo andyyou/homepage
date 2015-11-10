@@ -1,8 +1,8 @@
 var React = require('react');
 var Navbar = require('react-bootstrap').Navbar;
+var NavBrand = require('react-bootstrap').NavBrand;
 var Nav = require('react-bootstrap').Nav;
 var NavItem = require('react-bootstrap').NavItem;
-var Logo = require('./logo.jsx');
 var $ = require('jquery'); 
 
 var header = React.createClass({
@@ -10,7 +10,15 @@ var header = React.createClass({
 	render: function() {
 		return (
 			<div id="header">
-				<Navbar brand={<Logo />} inverse fixedTop toggleNavKey={0}>
+				<Navbar inverse fixedTop toggleNavKey={0}>
+					<NavBrand>
+						<a href="#" className="logo">
+							<svg width="70" height="50">
+								<circle cx="30" cy="25" r="20" stroke="black" strokeWidth="2"/>
+								<text x="21" y="30" fill="#fff">JS</text>
+							</svg>
+						</a>
+					</NavBrand>
 					<Nav right eventKey={0}> {/* This is the eventKey referenced */}
 					      <NavItem className="gnb" eventKey={1} href="#"><span data-title="Skill">Skill</span></NavItem>
 					      <NavItem className="gnb" eventKey={2} href="#"><span data-title="Work">Work</span></NavItem>

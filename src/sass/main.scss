@@ -64,9 +64,39 @@ $title-font: 'Courgette', cursive;;
 	perspective-origin: 			$x $y;
 }
 
+/***********************************************************
+*
+* Common style
+*
+***********************************************************/
+
+.well {
+	box-shadow: none;
+	.glyphicon {
+		top: 3px;
+	}
+	border: {
+		style: none;
+		radius: 0;
+	}
+	background: {
+		color: #fff;
+		image: none;
+	}
+	h2 {
+		font: {
+			family: $title-font;
+		}	
+	}
+}
+
+
+/**********************************************************/
+
+
 #header {
 	.navbar-fixed-top {
-		top: -56px;
+		top: -112px;
 		@include transition(0.7s, top, ease-in-out);
 	}
 
@@ -74,11 +104,14 @@ $title-font: 'Courgette', cursive;;
 		top: 0;
 		@include transition(1s, top, ease-in-out);
 	}
-
+	.navbar-brand {
+		padding: 0;
+	}
 	.logo {
 		display: inline-block;
 		@include no-decoration;
 		font: {
+			size: 15px;
 			weight: bold;
 		}
 		
@@ -161,54 +194,30 @@ $title-font: 'Courgette', cursive;;
 	background: {
 		color: antiquewhite;
 	}
-	.well {
-		.glyphicon {
-			top: 3px;
-		}
-		border: {
-			style: none;
-			radius: 0;
-		}
-		background: {
-			color: #fff;
-			image: none;
-		}
-		h2 {
-			font: {
-				family: $title-font;
-			}	
-		}
-		.skill_part {
-			float: left;
-			width: 50%;
-			height: 0;
-			padding-bottom: 50%; /*acts as fluid height*/
-			overflow:hidden;
-  			position:relative;
-			#wordCloud, #barChart {
-				position:absolute;
-				width:100%;
-				height:100%;
-				// border: {
-				// 	width: 5px;
-				// 	style: solid;
-				// 	color: #eee;
-				// 	radius: 5px;
-				// }
-			}
+	.skill_part {
+		float: left;
+		width: 50%;
+		height: 0;
+		padding-bottom: 50%; /*acts as fluid height*/
+		overflow:hidden;
+			position:relative;
+		#wordCloud, #barChart {
+			position:absolute;
+			width:100%;
+			height:100%;
 		}
 	}
+	
+}
+
+#work {
+	clear: both;
 }
 
 /***************************************************************
 * bar chart style
 ***************************************************************/
 #barChart {
-	// svg {
-	// 	background: {
-	// 		color: antiquewhite;
-	// 	}
-	// }
 	text {
 		font: {
 			size: 11px;
@@ -233,6 +242,12 @@ $title-font: 'Courgette', cursive;;
 *****************************************************************/
 
 @media all and (max-width: 900px) {
+	h2 {
+		font: {
+			size: 20px;
+		}
+	}
+
 	#video {
 		.title {
 			font: {
@@ -244,11 +259,6 @@ $title-font: 'Courgette', cursive;;
 	#skill {
 		.well {
 			height: 500px;
-			h2 {
-				font: {
-					size: 20px;
-				}
-			}
 			.skill_part {
 				clear: both;
 				width: 100%;
