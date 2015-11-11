@@ -11,9 +11,9 @@ var work = React.createClass({
 			    		<h2><span className="glyphicon glyphicon-check"></span> Work</h2>
 			    		<Coverflow width="960" height="500" displayQuantityOfSide={2} navigation={false}>
 					    	<img src='./image/ico/pay_ico.png' alt='title or description' />
-					    	
-					</Coverflow>
-			    		
+					    	<img src='./image/ico/pay_ico.png' alt='title or description' />
+								<img src='./image/ico/pay_ico.png' alt='title or description' />
+							</Coverflow>
 			    	</Well>
 			</div>
 		);
